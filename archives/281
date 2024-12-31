@@ -3,21 +3,25 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>归档 : 2022 - yexca - VRChat Blog</title>
+	<title>Unity布料(Cloth)简介 - yexca - VRChat Blog</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	
-	<meta name="description" content="VRChat 教程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yexca - VRChat Blog">
-<meta property="og:url" content="http://vrc.yexca.net/archives/2022/page/4/index.html">
+	<meta name="description" content="简介布料(Cloth)组件与带蒙皮的网格渲染器(Skinned Mesh Renderer)协同工作，从而提供基于物理的面料模拟解决方案。此组件是专为角色服装设计的，仅对蒙皮网格有效。如果向非蒙皮网格中添加Cloth组件，则 Unity 会删除非蒙皮网格并添加蒙皮网格。 添加布料在Inspector窗口中单击Add Component按钮，然后选择 Physics-Cloth Edit cloth">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity布料(Cloth)简介">
+<meta property="og:url" content="http://vrc.yexca.net/archives/281">
 <meta property="og:site_name" content="yexca - VRChat Blog">
-<meta property="og:description" content="VRChat 教程">
+<meta property="og:description" content="简介布料(Cloth)组件与带蒙皮的网格渲染器(Skinned Mesh Renderer)协同工作，从而提供基于物理的面料模拟解决方案。此组件是专为角色服装设计的，仅对蒙皮网格有效。如果向非蒙皮网格中添加Cloth组件，则 Unity 会删除非蒙皮网格并添加蒙皮网格。 添加布料在Inspector窗口中单击Add Component按钮，然后选择 Physics-Cloth Edit cloth">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/08-Cloth/CapsuleColliderDiagram.3al0s4nf8mc0.webp">
+<meta property="article:published_time" content="2022-08-01T07:24:56.000Z">
+<meta property="article:modified_time" content="2024-12-31T16:00:11.479Z">
 <meta property="article:author" content="yexca">
 <meta property="article:tag" content="VRChat 教程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/08-Cloth/CapsuleColliderDiagram.3al0s4nf8mc0.webp">
 
 	<meta name="theme-color" content="#fa7298">
 	<meta name="theme-color-rgb" content="250,114,152">
@@ -426,15 +430,6 @@
 
 <div class="page-information-card-container">
 	
-		
-<div class="page-information-card card bg-gradient-secondary shadow-lg border-0">
-	<div class="card-body">
-		<h3 class="text-black">归档 : 2022 </h3>
-		
-	</div>
-</div>
-
-	
 </div>
 
 <div id="sidebar_mask"></div>
@@ -468,18 +463,39 @@
 		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
 			<div id="leftbar_part2_inner" class="card-body">
 				
-				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+				<div class="nav-wrapper" style="padding-top: 5px;">
 	                <ul class="nav nav-pills nav-fill" role="tablist">
 						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
 						<li class="nav-item sidebar-tab-switcher">
-							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
 						</li>
 	                </ul>
 				</div>
 				<div>
 					<div class="tab-content" style="padding: 10px 10px 0 10px;">
 						
-						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
 							<h6 id="leftbar_overview_author_name">yexca</h6>
 							<nav class="site-state">
@@ -569,18 +585,17 @@
 	<main id="main" class="site-main" role="main">
 		
 		
-		
-				
-	<article class="post card bg-white shadow-sm border-0 ">
+			
+	<article class="post post-full card bg-white shadow-sm border-0 ">
 	<header class="post-header text-center">
 		
-		<a class="post-title" href="/archives/12">VRChat模型上传准备</a>
+		<a class="post-title" href="/archives/281">Unity布料(Cloth)简介</a>
 		<div class="post-meta">
 			
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2022-4-18 1:45:56 | 编辑于 2025-1-1 0:00:11">2022-4-18 1:45
+							<time title="发布于 2022-8-1 15:24:56 | 编辑于 2025-1-1 0:00:11">2022-8-1 15:24
 							</time>
 						</div>
 					
@@ -589,7 +604,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-categories">
 							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B/">上传模型</a>
+							<a class="post-meta-detail-catagory-link" href="/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/">其他教程</a>
 						</div>
 					
 						
@@ -597,7 +612,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-words">
 							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							348 字
+							1.9k 字
 						</div>
 					
 						
@@ -605,93 +620,442 @@
 						
 						<div class="post-meta-detail post-meta-detail-readingtime">
 							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
+							6 分钟
 						</div>
 					
 		</div>
 		
 	</header>
 
-	<div class="post-content">
-		
-			
-				一、前提条件1）拥有VRChat账号（官网注册）Steam登录的不行，如果名字后面有其他字符说明是steam登录，请官网注册账号并绑定
-2）账号等级达到蓝色（New User）在线时间，经常去人多的地方，好友数量，和好友在一起等都会加速升级
-二、Unity的下载与安装1）打开Unity官网下载界面官网下载界面链接(CN)：Unity所有版本下载 |...
-			
-		
+	<div class="post-content" id="post_content">
+		<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>布料(Cloth)</code>组件与<code>带蒙皮的网格渲染器(Skinned Mesh Renderer)</code>协同工作，从而提供基于物理的面料模拟解决方案。此组件是专为角色服装设计的，仅对蒙皮网格有效。如果向非蒙皮网格中添加<code>Cloth</code>组件，则 Unity 会删除非蒙皮网格并添加蒙皮网格。</p>
+<h2 id="添加布料"><a href="#添加布料" class="headerlink" title="添加布料"></a>添加布料</h2><p>在<code>Inspector</code>窗口中单击<code>Add Component</code>按钮，然后选择 <code>Physics</code>-<code>Cloth</code></p>
+<h2 id="Edit-cloth-constraints-编辑约束"><a href="#Edit-cloth-constraints-编辑约束" class="headerlink" title="Edit cloth constraints(编辑约束)"></a>Edit cloth constraints(编辑约束)</h2><p>您可以将约束应用于布料的特定顶点，以增加或减少这些顶点的移动自由度。</p>
+<h3 id="Cloth-Constraints"><a href="#Cloth-Constraints" class="headerlink" title="Cloth Constraints"></a>Cloth Constraints</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Visualization</strong></td>
+<td align="left"></td>
+<td>选择要显示的约束类型和粒子。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><em>Max Distance</em></td>
+<td>仅显示布料粒子的 Max Distance 值。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><em>Surface Penetration</em></td>
+<td>仅显示布料粒子的 Surface Penetration 值。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><em>Manipulate Backfaces</em></td>
+<td>启用此选项可以可视化和操控可能隐藏在布料当前朝向部分后面的粒子。</td>
+</tr>
+<tr>
+<td align="left">[ 色谱 ]</td>
+<td align="left"></td>
+<td>根据当前在整块布料中应用的最小值和最大值，为上述选定的约束类型提供粒子颜色和约束值之间的对应关系。黑色始终表示粒子没有约束。</td>
+</tr>
+<tr>
+<td align="left"><strong>Constraint Size</strong></td>
+<td align="left"></td>
+<td>代表布料粒子的球体的显示大小。在方便时可以调整此值以便简化约束版本。这个属性对约束本身没有任何影响。</td>
+</tr>
+</tbody></table>
+<h3 id="约束类型与颜色"><a href="#约束类型与颜色" class="headerlink" title="约束类型与颜色"></a>约束类型与颜色</h3><table>
+<thead>
+<tr>
+<th>约束类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Max Distance</td>
+<td>布料可以从顶点位置行进的最大距离</td>
+</tr>
+<tr>
+<td>Surface Penetration</td>
+<td>布料粒子可穿透网格的深度</td>
+</tr>
+</tbody></table>
+<p>根据在<code>Visualization</code>所选类型，粒子的颜色表示该粒子的约束在布料内的相对值</p>
+<h3 id="约束版本模式"><a href="#约束版本模式" class="headerlink" title="约束版本模式"></a>约束版本模式</h3><p>一共可以使用三种不同模式来编辑布料的约束值</p>
+<h4 id="1）Select"><a href="#1）Select" class="headerlink" title="1）Select"></a>1）Select</h4><blockquote>
+<p>将固定约束值应用于已选择的粒子组</p>
+</blockquote>
+<p>使用鼠标框选后，启用要应用于选定项的约束类型然后设定一个值即可</p>
+<h4 id="2）Paint"><a href="#2）Paint" class="headerlink" title="2）Paint"></a>2）Paint</h4><blockquote>
+<p>通过用画笔绘制布料粒子来施加固定的约束值</p>
+</blockquote>
+<p>根据需要调整<code>Brush Radius</code>，启用要应用的约束类型并设置一个绘制值后用画笔在粒子上绘制约束</p>
+<h4 id="3）Gradient"><a href="#3）Gradient" class="headerlink" title="3）Gradient"></a>3）Gradient</h4><blockquote>
+<p>将约束值从左到右线性渐变应用于预先选择的粒子组</p>
+</blockquote>
+<p><strong>需先确保在<code>场景</code>视图中开启<code>2D</code>视图</strong></p>
+<p>使用鼠标框选后，设置范围，然后选择要应用的约束类型</p>
+<h2 id="Edit-cloth-self-inter-collision-编辑自碰撞与互碰撞"><a href="#Edit-cloth-self-inter-collision-编辑自碰撞与互碰撞" class="headerlink" title="Edit cloth self&#x2F;inter-collision(编辑自碰撞与互碰撞)"></a>Edit cloth self&#x2F;inter-collision(编辑自碰撞与互碰撞)</h2><ul>
+<li>自碰撞：防止布料穿透自身</li>
+<li>互碰撞：允许布料粒子相互碰撞</li>
+</ul>
+<h3 id="Cloth-Self-Collision-and-Inter-Collision"><a href="#Cloth-Self-Collision-and-Inter-Collision" class="headerlink" title="Cloth Self-Collision and Inter-Collision"></a>Cloth Self-Collision and Inter-Collision</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Visualization</strong></td>
+<td align="left"></td>
+<td>选择要显示的约束类型和粒子。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><em>Self-Collision</em></td>
+<td>自碰撞</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><em>Inter-Collision</em></td>
+<td>互碰撞</td>
+</tr>
+<tr>
+<td align="left"><strong>Manipulate Backfaces</strong></td>
+<td align="left"></td>
+<td>启用此选项可以可视化和操控可能隐藏在布料当前朝向部分后面的粒子。</td>
+</tr>
+</tbody></table>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>黑色</td>
+<td>未使用的粒子</td>
+</tr>
+<tr>
+<td>蓝色</td>
+<td>当前选中粒子</td>
+</tr>
+<tr>
+<td>绿色</td>
+<td>已应用碰撞粒子</td>
+</tr>
+</tbody></table>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>选择<code>Select</code>，使用鼠标框选后勾选<code>Self-Collision and Inter-Collision</code>即可</p>
+<h4 id="Self-Collison"><a href="#Self-Collison" class="headerlink" title="Self-Collison"></a>Self-Collison</h4><blockquote>
+<p>在应用自碰撞与互碰撞后<code>检查器</code>会多出此选项</p>
+</blockquote>
+<p>此时<code>场景</code>中粒子，可能会消失，将<code>检查器</code>中<code>Self-Collision Distance</code>调大即可看到</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Distance</strong></td>
+<td align="left">每个粒子的包裹球体的直径。Unity 确保这些球体在模拟过程中不会重叠。<strong>Distance</strong> 属性的值应小于配置中的两个粒子之间的最小距离。如果距离较大，则自碰撞可能违反某些距离约束并导致抖动。</td>
+</tr>
+<tr>
+<td align="left"><strong>Stiffness</strong></td>
+<td align="left">粒子之间的分离冲力的强度。此值由布料解算器进行计算，应足以保持粒子分离。</td>
+</tr>
+</tbody></table>
+<h3 id="Paint与Erase"><a href="#Paint与Erase" class="headerlink" title="Paint与Erase"></a>Paint与Erase</h3><p>调整好<code>Brush Radius</code>后在<code>场景</code>中滑动以添加或删除用于碰撞的粒子</p>
+<h3 id="互碰撞"><a href="#互碰撞" class="headerlink" title="互碰撞"></a>互碰撞</h3><p>指定粒子与自碰撞相同，不过设置在<code>Edit-Project Setting-Physics</code>中勾选<code>Cloth Inter-Collision</code>，然后设置<code>Distance</code>与<code>Stiffness</code>(功能与自碰撞的相同)</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>自碰撞和互碰撞可能需要大量的总模拟时间。请考虑缩小碰撞距离并使用自碰撞索引来减少彼此碰撞的粒子数。</p>
+<p>自碰撞使用顶点，而不是三角形，因此对于三角形远大于布料厚度的网格，不要指望碰撞能够完美运行。</p>
+<h2 id="检查器属性"><a href="#检查器属性" class="headerlink" title="检查器属性"></a>检查器属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Stretching Stiffness</strong></td>
+<td align="left">布料的伸展刚性</td>
+</tr>
+<tr>
+<td align="left"><strong>Bending Stiffness</strong></td>
+<td align="left">布料的弯曲刚性</td>
+</tr>
+<tr>
+<td align="left"><strong>Use Tethers</strong></td>
+<td align="left">施加约束以帮助防止移动的布料粒子离开固定粒子的距离太远。此属性有助于减少过度拉伸。</td>
+</tr>
+<tr>
+<td align="left"><strong>Use Gravity</strong></td>
+<td align="left">重力是否影响布料的模拟</td>
+</tr>
+<tr>
+<td align="left"><strong>Damping</strong></td>
+<td align="left">布料运动时的阻尼</td>
+</tr>
+<tr>
+<td align="left"><strong>External Acceleration</strong></td>
+<td align="left">施加在布料上的恒定外部加速度。在布料上固定的外部加速度，主要用于模拟风的效果，可设定XYZ方向</td>
+</tr>
+<tr>
+<td align="left"><strong>Random Acceleration</strong></td>
+<td align="left">施加在布料上的随机外部加速度。在布料上随机的外部加速度，让布料产生不规则的摆动</td>
+</tr>
+<tr>
+<td align="left"><strong>World Velocity Scale</strong></td>
+<td align="left">角色多大程度的世界空间移动会影响布料顶点。</td>
+</tr>
+<tr>
+<td align="left"><strong>World Acceleration Scale</strong></td>
+<td align="left">角色多大的世界空间加速度会影响布料顶点。</td>
+</tr>
+<tr>
+<td align="left"><strong>Friction</strong></td>
+<td align="left">布料与角色碰撞时的摩擦力。设定布料的摩擦系数</td>
+</tr>
+<tr>
+<td align="left"><strong>Collision Mass Scale</strong></td>
+<td align="left">碰撞粒子的质量增加量。</td>
+</tr>
+<tr>
+<td align="left"><strong>Use Continuous Collision</strong></td>
+<td align="left">启用连续碰撞来提高碰撞稳定性。</td>
+</tr>
+<tr>
+<td align="left"><strong>Use Virtual Particles</strong></td>
+<td align="left">每个三角形添加一个虚拟粒子，从而提高碰撞稳定性。</td>
+</tr>
+<tr>
+<td align="left"><strong>Solver Frequency</strong></td>
+<td align="left">解算器每秒迭代次数。</td>
+</tr>
+<tr>
+<td align="left"><strong>Sleep Threshold</strong></td>
+<td align="left">布料的睡眠阈值。</td>
+</tr>
+<tr>
+<td align="left"><strong>Capsule Colliders</strong></td>
+<td align="left">应与此<code>布料</code>实例碰撞的<code>胶囊碰撞体</code>的数组。</td>
+</tr>
+<tr>
+<td align="left"><strong>Sphere Colliders</strong></td>
+<td align="left">应与此<code>布料</code>实例碰撞的<code>球形碰撞体</code>的数组。</td>
+</tr>
+<tr>
+<td align="left">virtual Particle Weights</td>
+<td align="left">虚拟粒子权重</td>
+</tr>
+</tbody></table>
+<h2 id="碰撞"><a href="#碰撞" class="headerlink" title="碰撞"></a>碰撞</h2><p>布料仅可以与<code>胶囊碰撞体</code>或<code>球形碰撞体</code>相互作用，其中两个<code>球形碰撞体</code>可以相连形成锥体碰撞</p>
+<h3 id="胶囊碰撞体"><a href="#胶囊碰撞体" class="headerlink" title="胶囊碰撞体"></a>胶囊碰撞体</h3><p>胶囊碰撞体由两个半球与一个圆柱体连接在一起组成</p>
+<h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p>在相应骨骼创建空物体，在<code>检查器</code>窗口中单击<code>Add Component</code>按钮，然后选择 <code>Physics</code>-<code>Capsule Collider</code></p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Edit Collider</strong></td>
+<td align="left">选中即可在<code>场景</code>中可视化编辑大小</td>
+</tr>
+<tr>
+<td align="left"><strong>Is Trigger</strong></td>
+<td align="left">如果启用此属性，则该碰撞体将用于触发事件，并被物理引擎忽略</td>
+</tr>
+<tr>
+<td align="left"><strong>Material</strong></td>
+<td align="left">引用物理材质，可确定该碰撞体与其他对象的交互方式</td>
+</tr>
+<tr>
+<td align="left"><strong>Center</strong></td>
+<td align="left">碰撞体在对象局部空间中的位置</td>
+</tr>
+<tr>
+<td align="left"><strong>Radius</strong></td>
+<td align="left">碰撞体的局部宽度的半径</td>
+</tr>
+<tr>
+<td align="left"><strong>Height</strong></td>
+<td align="left">碰撞体的总高度</td>
+</tr>
+<tr>
+<td align="left"><strong>Direction</strong></td>
+<td align="left">胶囊体在对象局部空间中纵向方向的轴。</td>
+</tr>
+</tbody></table>
+<h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/08-Cloth/CapsuleColliderDiagram.3al0s4nf8mc0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<h3 id="球形碰撞体与锥体"><a href="#球形碰撞体与锥体" class="headerlink" title="球形碰撞体与锥体"></a>球形碰撞体与锥体</h3><p>球形碰撞体是一种基本的球体形状原始碰撞体</p>
+<h4 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h4><p>在相应骨骼创建空物体，在<code>检查器</code>窗口中单击<code>Add Component</code>按钮，然后选择 <code>Physics</code>-<code>Sphere Collider</code></p>
+<h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Edit Collider</strong></td>
+<td align="left">选中即可在<code>场景</code>中可视化编辑大小</td>
+</tr>
+<tr>
+<td align="left"><strong>Is Trigger</strong></td>
+<td align="left">如果启用此属性，则该碰撞体将用于触发事件，并被物理引擎忽略</td>
+</tr>
+<tr>
+<td align="left"><strong>Material</strong></td>
+<td align="left">引用物理材质，可确定该碰撞体与其他对象的交互方式</td>
+</tr>
+<tr>
+<td align="left"><strong>Center</strong></td>
+<td align="left">碰撞体在对象局部空间中的位置</td>
+</tr>
+<tr>
+<td align="left"><strong>Radius</strong></td>
+<td align="left">碰撞体半径的大小</td>
+</tr>
+</tbody></table>
+
 	</div>
+
+	
+
+	
+			<div class='additional-content-after-post'>本文章由 <a target="_blank" rel="noopener" href="https://lit.link/yexca">yexca</a> 采用 <a style="text-decoration: underline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_BLANK">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，转载请注明出处。</blockquote></div>
+		
 
 	
 </article>
 
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/archives/1">Hello World！</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2022-4-13 14:39:00 | 编辑于 2025-1-1 0:00:11">2022-4-13 14:39
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/default/">default</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							40 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				
-欢迎使用WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！
-
-
-
-我已经不用WordPress了
-
-now, I’m using Hexo (XD
-
-			
-		
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://vrc.yexca.net/archives/281&text=Unity布料(Cloth)简介" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
 	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : 'Unity布料(Cloth)简介',
+	    description : `简介布料(Cloth)组件与带蒙皮的网格渲染器(Skinned Mesh Renderer)协同工作...`,
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'http://vrc.yexca.net/archives/281'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
 
-	
-</article>
 
 
 
-<nav><ul class="pagination"><li class="page-item"><a aria-label="Previous Page" class="page-link" href="/archives/2022/page/3/"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li><li class="page-item"><a class="page-link" href="/archives/2022/">1</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/2/">2</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/3/">3</a></li><li class="page-item active"><span class="page-link" style="cursor: default;">4</span></li></ul></nav><nav><ul class="pagination pagination-mobile"><li class="page-item"><a aria-label="Previous Page" class="page-link" href="/archives/2022/page/3/"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li><li class="page-item"><a class="page-link" href="/archives/2022/">1</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/2/">2</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/3/">3</a></li><li class="page-item active"><span class="page-link" style="cursor: default;">4</span></li></ul></nav>
+
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/archives/284" rel="prev"> PC下移动手</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/archives/280" rel="next"> 出场动画</a></div></div>
 
 
-			
+
+
+		
+		
 		
 		
 

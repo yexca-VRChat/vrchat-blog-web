@@ -137,25 +137,6 @@
     
     
     <entry>
-      <title>顺序播放音乐</title>
-      <link href="//archives/273"/>
-      <url>//archives/273</url>
-      
-        <content type="html"><![CDATA[<p>(Avatar Parameter Driver)</p><h2 id="一、准备文件"><a href="#一、准备文件" class="headerlink" title="一、准备文件"></a>一、准备文件</h2><p>已经录好开关音频的动画文件，可参考：<a href="/archives/140">添加MMD舞蹈(Animator Locomotion Control)</a></p><h2 id="二、参数"><a href="#二、参数" class="headerlink" title="二、参数"></a>二、参数</h2><table><thead><tr><th>参数</th><th>动画器(FX层)</th><th>数值</th><th>描述</th></tr></thead><tbody><tr><td>开关(Bool) 例如“Music_Start”</td><td>添加</td><td>添加</td><td>控制随机播放开关</td></tr><tr><td>选择歌曲(Int) 例如”Music”</td><td>添加</td><td>可选(如果添加可在游戏显示当前播放歌曲)</td><td>控制选择的歌曲</td></tr><tr><td>下一首(Bool) 例如“Next”</td><td>可选</td><td>可选(如果添加可控制播放下一首)</td><td>控制播放下一首</td></tr></tbody></table><h2 id="三、图层"><a href="#三、图层" class="headerlink" title="三、图层"></a>三、图层</h2><p>参加参数后，新建一个图层，重命名后权重设为1，如下图所示</p><p><img src="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/06-%E9%A1%BA%E5%BA%8F%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/%E9%A1%BA%E5%BA%8F%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90.6da5laejoag0.webp" alt="img"></p><h2 id="四、菜单"><a href="#四、菜单" class="headerlink" title="四、菜单"></a>四、菜单</h2><p>在VRC数值中添加参数后制作菜单</p><h3 id="1）如果只是做一个开关"><a href="#1）如果只是做一个开关" class="headerlink" title="1）如果只是做一个开关"></a>1）如果只是做一个开关</h3><p>只需要添加一个“Toggle”，参数为“Music_Start”即可</p><h3 id="2）游戏中显示当前播放歌曲"><a href="#2）游戏中显示当前播放歌曲" class="headerlink" title="2）游戏中显示当前播放歌曲"></a>2）游戏中显示当前播放歌曲</h3><p>建议做一个子菜单</p><p>先添加一个开关，即添加一个“Toggle”，参数为“Music_Start”</p><p>然后再添加几个(歌曲数量)“Toggle”，参数为“Music”，值为图层中对应条件</p><h3 id="3）添加下一首"><a href="#3）添加下一首" class="headerlink" title="3）添加下一首"></a>3）添加下一首</h3><p>添加一个“Button”，参数为“Next”</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 使用脚本 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Blender换头</title>
       <link href="//archives/274"/>
       <url>//archives/274</url>
@@ -166,6 +147,25 @@
       <categories>
           
           <category> 其他教程 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>顺序播放音乐</title>
+      <link href="//archives/273"/>
+      <url>//archives/273</url>
+      
+        <content type="html"><![CDATA[<p>(Avatar Parameter Driver)</p><h2 id="一、准备文件"><a href="#一、准备文件" class="headerlink" title="一、准备文件"></a>一、准备文件</h2><p>已经录好开关音频的动画文件，可参考：<a href="/archives/140">添加MMD舞蹈(Animator Locomotion Control)</a></p><h2 id="二、参数"><a href="#二、参数" class="headerlink" title="二、参数"></a>二、参数</h2><table><thead><tr><th>参数</th><th>动画器(FX层)</th><th>数值</th><th>描述</th></tr></thead><tbody><tr><td>开关(Bool) 例如“Music_Start”</td><td>添加</td><td>添加</td><td>控制随机播放开关</td></tr><tr><td>选择歌曲(Int) 例如”Music”</td><td>添加</td><td>可选(如果添加可在游戏显示当前播放歌曲)</td><td>控制选择的歌曲</td></tr><tr><td>下一首(Bool) 例如“Next”</td><td>可选</td><td>可选(如果添加可控制播放下一首)</td><td>控制播放下一首</td></tr></tbody></table><h2 id="三、图层"><a href="#三、图层" class="headerlink" title="三、图层"></a>三、图层</h2><p>参加参数后，新建一个图层，重命名后权重设为1，如下图所示</p><p><img src="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/06-%E9%A1%BA%E5%BA%8F%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/%E9%A1%BA%E5%BA%8F%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90.6da5laejoag0.webp" alt="img"></p><h2 id="四、菜单"><a href="#四、菜单" class="headerlink" title="四、菜单"></a>四、菜单</h2><p>在VRC数值中添加参数后制作菜单</p><h3 id="1）如果只是做一个开关"><a href="#1）如果只是做一个开关" class="headerlink" title="1）如果只是做一个开关"></a>1）如果只是做一个开关</h3><p>只需要添加一个“Toggle”，参数为“Music_Start”即可</p><h3 id="2）游戏中显示当前播放歌曲"><a href="#2）游戏中显示当前播放歌曲" class="headerlink" title="2）游戏中显示当前播放歌曲"></a>2）游戏中显示当前播放歌曲</h3><p>建议做一个子菜单</p><p>先添加一个开关，即添加一个“Toggle”，参数为“Music_Start”</p><p>然后再添加几个(歌曲数量)“Toggle”，参数为“Music”，值为图层中对应条件</p><h3 id="3）添加下一首"><a href="#3）添加下一首" class="headerlink" title="3）添加下一首"></a>3）添加下一首</h3><p>添加一个“Button”，参数为“Next”</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 使用脚本 </category>
           
       </categories>
       

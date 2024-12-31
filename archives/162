@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html class="article-header-style-default">
+<head>
+	
+	<title>动骨(PhysBones)简介 - yexca - VRChat Blog</title>
+	<meta charset="utf-8">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<meta name="description" content="前言  官方消息：原动骨插件最终将被全部移除，将全部自动转为新动骨  自动转换  将带动骨的模型拖入场景，选择模型后点击上方“VRChat SDK-Utilities-Convert DynamicBones to PhysBones” 注意：毕竟只是自动转换，Dynamic Bones和PhysBones并不相同，肯定会有不完美的地方 (指很多bug)  添加PhysBones在想要“动”的骨骼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动骨(PhysBones)简介">
+<meta property="og:url" content="http://vrc.yexca.net/archives/162">
+<meta property="og:site_name" content="yexca - VRChat Blog">
+<meta property="og:description" content="前言  官方消息：原动骨插件最终将被全部移除，将全部自动转为新动骨  自动转换  将带动骨的模型拖入场景，选择模型后点击上方“VRChat SDK-Utilities-Convert DynamicBones to PhysBones” 注意：毕竟只是自动转换，Dynamic Bones和PhysBones并不相同，肯定会有不完美的地方 (指很多bug)  添加PhysBones在想要“动”的骨骼">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5l87k4hxtbk0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5gd52p9c23g0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.9orxdswcog4.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.22irlehtq1fk.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/YO5V[YTTV81FOBFVREMD7]T.4hygp330s4c0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.2z0m8306s3c0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5fg5lki8p100.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.3q5ks1qzflw0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.6udcwfr44rk0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.26ix1hne1zc0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5hnwt54xm600.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5gk8akp19280.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.k66s0ps9stc.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/20220322/image.inu3nz30ic0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.3vj5o12e9l80.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.6d07koeo6ec0.webp">
+<meta property="og:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.7ed1567tjro0.webp">
+<meta property="article:published_time" content="2022-04-26T07:25:56.000Z">
+<meta property="article:modified_time" content="2024-12-31T16:00:11.479Z">
+<meta property="article:author" content="yexca">
+<meta property="article:tag" content="VRChat 教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5l87k4hxtbk0.webp">
+
+	<meta name="theme-color" content="#fa7298">
+	<meta name="theme-color-rgb" content="250,114,152">
+	<meta name="theme-color-origin" content="#fa7298">
+	<meta name="argon-enable-custom-theme-color" content="true">
+	<meta name="theme-card-radius" content="4">
+	<meta name="theme-version" content="1.0.2">
+	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+	
+<link rel="stylesheet" href="/assets/argon_css_merged.css">
+
+	
+<link rel="stylesheet" href="/style.css">
+
+	
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Open+Sans:300,400,600,700|Noto+Serif+SC:300,600&display=swap.css">
+
+	
+<script src="/assets/argon_js_merged.js"></script>
+
+	
+<script src="/assets/js/argon.min.js"></script>
+
+	
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+	
+
+	<script>
+		var argonConfig = {
+			language: "zh_CN",
+			
+				zoomify: {
+					duration: 200,
+					easing: "cubic-bezier(0.4,0,0,1)",
+					scale: 0.9
+				},
+			
+			pangu: "false",
+			
+				lazyload: {
+					threshold: 800,
+					effect: "fadeIn"
+				},
+			
+			disable_pjax: false,
+			headroom: false
+		}
+	</script>
+	<script>
+		var darkmodeAutoSwitch = "system";
+		function setDarkmode(enable){
+			if (enable == true){
+				$("html").addClass("darkmode");
+			}else{
+				$("html").removeClass("darkmode");
+			}
+			$(window).trigger("scroll");
+		}
+		function toggleDarkmode(){
+			if ($("html").hasClass("darkmode")){
+				setDarkmode(false);
+				sessionStorage.setItem("Argon_Enable_Dark_Mode", "false");
+			}else{
+				setDarkmode(true);
+				sessionStorage.setItem("Argon_Enable_Dark_Mode", "true");
+			}
+		}
+		if (sessionStorage.getItem("Argon_Enable_Dark_Mode") == "true"){
+			setDarkmode(true);
+		}
+		function toggleDarkmodeByPrefersColorScheme(media){
+			if (sessionStorage.getItem('Argon_Enable_Dark_Mode') == "false" || sessionStorage.getItem('Argon_Enable_Dark_Mode') == "true"){
+				return;
+			}
+			if (media.matches){
+				setDarkmode(true);
+			}else{
+				setDarkmode(false);
+			}
+		}
+		function toggleDarkmodeByTime(){
+			if (sessionStorage.getItem('Argon_Enable_Dark_Mode') == "false" || sessionStorage.getItem('Argon_Enable_Dark_Mode') == "true"){
+				return;
+			}
+			let hour = new Date().getHours();
+			if (hour < 7 || hour >= 22){
+				setDarkmode(true);
+			}else{
+				setDarkmode(false);
+			}
+		}
+		if (darkmodeAutoSwitch == 'system'){
+			var darkmodeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+			darkmodeMediaQuery.addListener(toggleDarkmodeByPrefersColorScheme);
+			toggleDarkmodeByPrefersColorScheme(darkmodeMediaQuery);
+		}
+		if (darkmodeAutoSwitch == 'time'){
+			toggleDarkmodeByTime();
+		}
+		if (darkmodeAutoSwitch == 'alwayson'){
+			setDarkmode(true);
+		}
+
+		function toggleAmoledDarkMode(){
+			$("html").toggleClass("amoled-dark");
+			if ($("html").hasClass("amoled-dark")){
+				localStorage.setItem("Argon_Enable_Amoled_Dark_Mode", "true");
+			}else{
+				localStorage.setItem("Argon_Enable_Amoled_Dark_Mode", "false");
+			}
+		}
+		if (localStorage.getItem("Argon_Enable_Amoled_Dark_Mode") == "true"){
+			$("html").addClass("amoled-dark");
+		}else if (localStorage.getItem("Argon_Enable_Amoled_Dark_Mode") == "false"){
+			$("html").removeClass("amoled-dark");
+		}
+	</script>
+	<script>
+		if (navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1){
+			$("html").addClass("using-safari");
+		}
+	</script>
+
+	
+		
+<script src="/assets/vendor/smoothscroll/smoothscroll1.js"></script>
+
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<style id="themecolor_css">
+	
+	:root{
+		--themecolor: #fa7298;
+		--themecolor-dark0: #FA668F;
+		--themecolor-dark: #F95986;
+		--themecolor-dark2: #F84174;
+		--themecolor-dark3: #F72862;
+		--themecolor-light: #FCA3BC;
+		--themecolor-rgbstr: 250,114,152;
+		--themecolor-gradient: linear-gradient(150deg,var(--themecolor-light) 15%, var(--themecolor) 70%, var(--themecolor-dark0) 94%);
+
+	}
+</style>
+<style id="theme_cardradius_css">
+	:root{
+		--card-radius: 4px;
+	}
+</style>
+
+<body>
+<div id="toolbar">
+	<header class="header-global">
+		<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light bg-primary headroom--not-bottom headroom--not-top headroom--pinned">
+			<div class="container">
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="/">VRChat Blog</a>
+				<div class="navbar-collapse collapse" id="navbar_global">
+					<div class="navbar-collapse-header">
+						<div class="row">
+							<div class="col-6 collapse-brand"></div>
+							<div class="col-6 collapse-close">
+								<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+									<span></span>
+									<span></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<ul id="navbar_search_btn_mobile" class="navbar-nav align-items-lg-center ml-lg-auto">
+						<li class="nav-item" data-toggle="modal" data-target="#argon_search_modal" style="padding-left: 5px;">
+							<a class="nav-link nav-link-icon">
+								<i class="fa fa-search"></i>
+								<span class="nav-link-inner--text d-lg-none">搜索</span>
+							</a>
+						</li>
+					</ul>
+					
+							<ul class='navbar-nav navbar-nav-hover align-items-lg-center'>
+								
+										<li class='nav-item'>
+											<a href='/start' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>教程大纲</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/background' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>历史背景</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/archives' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>所有文章</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a target="_blank" rel="noopener" href='https://vrchat.yexca.net/about/#%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>关于网站</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a target="_blank" rel="noopener" href='https://vrchat.yexca.net/references/' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>参考资料</span>
+											</a>
+											
+										</li>
+									
+							</ul>
+						
+					<ul class="navbar-nav align-items-lg-center ml-lg-auto">
+						<li class="nav-item" data-toggle="modal" data-target="#argon_search_modal" id="navbar_search_btn_pc">
+							<a class="nav-link nav-link-icon">
+								<i class="fa fa-search"></i>
+								<span class="nav-link-inner--text d-lg-none">搜索</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="navbar_menu_mask" data-toggle="collapse" data-target="#navbar_global"></div>
+			</div>
+		</nav>
+	</header>
+</div>
+<div class="modal fade" id="argon_search_modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">搜索</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<!-- TODO -->
+<div class="form-group mb-3">
+	<div class="input-group input-group-alternative">
+		<div class="input-group-prepend">
+			<span class="input-group-text"><i class="fa fa-search"></i></span>
+		</div>
+		<input id="local-search-input" class="form-control" placeholder="搜索什么..." type="text"  autocomplete="off" data-search.path="search.xml" data-config.root="/">
+	</div>
+	<div id="local-search-result"></div>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--Banner-->
+<section id="banner" class="banner section section-lg section-shaped">
+	<div class="shape shape-style-1 shape-primary">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+
+	
+	<div id="banner_container" class="banner-container container text-center">
+		
+			<div class="banner-title text-white" data-text="Welcome!" data-interval=""><span class="banner-title-inner">&nbsp;</span>
+		
+		</div>
+	</div>
+	
+</section>
+
+
+	<style>
+		#content:before {
+			content: '';
+			display: block;
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: -2;
+			background: url(https://github.com/yexca/picx-images-hosting/raw/master/2025/01-BackgroundImage/73080179_p0.7snacbe893.webp);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			opacity: 1;
+			transition: opacity .5s ease;
+		}
+		html.darkmode #content:before{
+			filter: brightness(0.65);
+		}
+		
+		
+			#banner, #banner .shape {
+				background: transparent !important;
+			}
+		
+	</style>
+
+
+
+
+<div id="float_action_buttons" class="float-action-buttons fabtns-unloaded">
+	<button id="fabtn_toggle_sides" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-hidden="true" tooltip-move-to-left="移至左侧" tooltip-move-to-right="移至右侧">
+		<span class="btn-inner--icon fabtn-show-on-right"><i class="fa fa-caret-left"></i></span>
+		<span class="btn-inner--icon fabtn-show-on-left"><i class="fa fa-caret-right"></i></span>
+	</button>
+	<button id="fabtn_back_to_top" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-label="Back To Top" tooltip="回到顶部">
+		<span class="btn-inner--icon"><i class="fa fa-angle-up"></i></span>
+	</button>
+	<button id="fabtn_go_to_comment" class="btn btn-icon btn-neutral fabtn shadow-sm d-none" type="button" style='display: none;'  aria-label="Comment" tooltip="评论">
+		<span class="btn-inner--icon"><i class="fa fa-comment-o"></i></span>
+	</button>
+	<button id="fabtn_toggle_darkmode" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" style='display: none;'  aria-label="Toggle Darkmode" tooltip-darkmode="夜间模式" tooltip-blackmode="暗黑模式" tooltip-lightmode="日间模式">
+		<span class="btn-inner--icon"><i class="fa fa-moon-o"></i><i class='fa fa-lightbulb-o'></i></span>
+	</button>
+	<button id="fabtn_toggle_blog_settings_popup" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button"  aria-label="Open Blog Settings Menu" tooltip="设置">
+		<span class="btn-inner--icon"><i class="fa fa-cog"></i></span>
+	</button>
+	<div id="fabtn_blog_settings_popup" class="card shadow-sm" style="opacity: 0;" aria-hidden="true">
+		<div id="close_blog_settings"><i class="fa fa-close"></i></div>
+		<div class="blog-setting-item mt-3">
+			<div style="transform: translateY(-4px);"><div id="blog_setting_toggle_darkmode_and_amoledarkmode" tooltip-switch-to-darkmode="切换到夜间模式" tooltip-switch-to-blackmode="切换到暗黑模式"><span>夜间模式</span><span>暗黑模式</span></div></div>
+			<div style="flex: 1;"></div>
+			<label id="blog_setting_darkmode_switch" class="custom-toggle">
+				<span class="custom-toggle-slider rounded-circle"></span>
+			</label>
+		</div>
+		<div class="blog-setting-item mt-3">
+			<div style="flex: 1;">字体</div>
+			<div>
+				<button id="blog_setting_font_sans_serif" type="button" class="blog-setting-font btn btn-outline-primary blog-setting-selector-left">Sans Serif</button><button id="blog_setting_font_serif" type="button" class="blog-setting-font btn btn-outline-primary blog-setting-selector-right">Serif</button>
+			</div>
+		</div>
+		<div class="blog-setting-item mt-3">
+			<div style="flex: 1;">阴影</div>
+			<div>
+				<button id="blog_setting_shadow_small" type="button" class="blog-setting-shadow btn btn-outline-primary blog-setting-selector-left">浅阴影</button><button id="blog_setting_shadow_big" type="button" class="blog-setting-shadow btn btn-outline-primary blog-setting-selector-right">深阴影</button>
+			</div>
+		</div>
+		<div class="blog-setting-item mt-3 mb-3">
+			<div style="flex: 1;">滤镜</div>
+			<div id="blog_setting_filters" class="ml-3">
+				<button id="blog_setting_filter_off" type="button" class="blog-setting-filter-btn ml-0" filter-name="off">关闭</button>
+				<button id="blog_setting_filter_sunset" type="button" class="blog-setting-filter-btn" filter-name="sunset">日落</button>
+				<button id="blog_setting_filter_darkness" type="button" class="blog-setting-filter-btn" filter-name="darkness">暗化</button>
+				<button id="blog_setting_filter_grayscale" type="button" class="blog-setting-filter-btn" filter-name="grayscale">灰度</button>
+			</div>
+		</div>
+		<div class="blog-setting-item mb-3">
+			<div id="blog_setting_card_radius_to_default" style="cursor: pointer;" tooltip="恢复默认">圆角</div>
+			<div style="flex: 1;margin-left: 20px;margin-right: 8px;transform: translateY(2px);">
+				<div id="blog_setting_card_radius"></div>
+			</div>
+		</div>
+		
+			<div class="blog-setting-item mt-1 mb-3">
+				<div style="flex: 1;">主题色</div>
+				<div id="theme-color-picker" class="ml-3"></div>
+			</div>
+		
+	</div>
+	<button id="fabtn_open_sidebar" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-label="Open Sidebar Menu" tooltip="菜单">
+		<span class="btn-inner--icon"><i class="fa fa-bars"></i></span>
+	</button>
+	<button id="fabtn_reading_progress" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-hidden="true" tooltip="阅读进度">
+		<div id="fabtn_reading_progress_bar" style="width: 0%;"></div>
+		<span id="fabtn_reading_progress_details">0%</span>
+	</button>
+</div>
+
+<div id="content" class="site-content">
+
+
+
+
+
+
+
+
+
+<div class="page-information-card-container">
+	
+</div>
+
+<div id="sidebar_mask"></div>
+<aside id="leftbar" class="leftbar widget-area" role="complementary">
+		
+			<div id="leftbar_announcement" class="card bg-white shadow-sm border-0">
+				<div class="leftbar-announcement-body">
+					<div class="leftbar-announcement-title text-white">公告</div>
+					<div class="leftbar-announcement-content text-white">学业繁忙，不再更新维护，消息不会回复，请见谅</div>
+				</div>
+			</div>
+		
+		<div id="leftbar_part1" class="widget widget_search card bg-white shadow-sm border-0">
+			<div class="leftbar-banner card-body">
+				<span class="leftbar-banner-title text-white">VRChat Blog</span>
+				
+				
+			</div>
+			
+			
+				<ul id='leftbar_part1_menu' class='leftbar-menu'>
+					<li class='leftbar-menu-item'><a href='/start'>教程大纲</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>上传教程</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/12'>上传准备</a></li><li class='leftbar-menu-item'><a href='/archives/19'>成品模型上传</a></li><li class='leftbar-menu-item'><a href='/archives/29'>MMD 模型转 FBX</a></li><li class='leftbar-menu-item'><a href='/archives/33'>MMD 模型/FBX 模型上传</a></li><li class='leftbar-menu-item'><a href='/archives/37'>SDK2 转 SDK3</a></li></ul></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>动画层</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/44'>简介</a></li><li class='leftbar-menu-item'><a href='/archives/48'>Locomotion 层</a></li><li class='leftbar-menu-item'><a href='/archives/53'>Action 层</a></li><li class='leftbar-menu-item'><a href='/archives/70'>FX 层简单物品开关</a></li><li class='leftbar-menu-item'><a href='/archives/75'>FX 层物体绑骨</a></li><li class='leftbar-menu-item'><a href='/archives/102'>FX 层换衣服</a></li><li class='leftbar-menu-item'><a href='/archives/105'>FX 层固定于世界的物品</a></li><li class='leftbar-menu-item'><a href='/archives/108'>FX 层 MMD 固定世界</a></li><li class='leftbar-menu-item'><a href='/archives/119'>综述</a></li></ul></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>VRC 脚本</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/135'>State Behaviors</a></li><li class='leftbar-menu-item'><a href='/archives/140'>自身跳 MMD</a></li><li class='leftbar-menu-item'><a href='/archives/148'>随机播放音乐</a></li><li class='leftbar-menu-item'><a href='/archives/273'>顺序播放音乐</a></li></ul></li>
+				</ul>
+			
+			<div class="card-body text-center leftbar-search-button">
+				<button id="leftbar_search" class="btn btn-secondary btn-lg active btn-sm btn-block border-0" role="button" data-toggle="modal" data-target="#argon_search_modal" >
+					<i class="menu-item-icon fa fa-search mr-0"></i> 搜索
+				</button>
+			</div>
+		</div>
+		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
+			<div id="leftbar_part2_inner" class="card-body">
+				
+				<div class="nav-wrapper" style="padding-top: 5px;">
+	                <ul class="nav nav-pills nav-fill" role="tablist">
+						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
+						<li class="nav-item sidebar-tab-switcher">
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+						</li>
+	                </ul>
+				</div>
+				<div>
+					<div class="tab-content" style="padding: 10px 10px 0 10px;">
+						
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
+							<h6 id="leftbar_overview_author_name">yexca</h6>
+							<nav class="site-state">
+								<div class="site-state-item site-state-posts">
+									<a href="/archives">
+										<span class="site-state-item-count">32</span>
+										<span class="site-state-item-name">文章</span>
+									</a>
+								</div>
+								<div class="site-state-item site-state-categories">
+									<a data-toggle="modal" data-target="#blog_categories">
+										<span class="site-state-item-count">6</span>
+										<span class="site-state-item-name">分类</span>
+									</a>
+								</div>      
+								<div class="site-state-item site-state-tags">
+									<a data-toggle="modal" data-target="#blog_tags">
+										<span class="site-state-item-count">0</span>
+										<span class="site-state-item-name">标签</span>
+									</a>
+								</div>
+							</nav>
+							
+									<div class="site-author-links">
+										
+											<div class='site-author-links-item'>
+												<a href="https://blog.yexca.net/" rel='noopener' target='_blank'>My Blog</a>
+											</div>
+										
+											<div class='site-author-links-item'>
+												<a href="https://vrchat.yexca.net/" rel='noopener' target='_blank'>VRC Docs</a>
+											</div>
+										
+									</div>
+								
+							
+									<div class='site-friend-links'>
+										<div class='site-friend-links-title'><i class='fa fa-fw fa-link'></i> Links</div>
+										<ul class='site-friend-links-ul'>
+											
+												<li class='site-friend-links-item'>
+													<a href='https://lit.link/yexca' rel='noopener' target='_blank'>Lit Link</a>
+												</li>
+											
+										</ul>
+									</div>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</aside>
+<div class="modal fade" id="blog_categories" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">分类</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<a class="badge badge-secondary tag" href="/categories/default/" rel="tag">default <span class="tag-num">2</span></a><a class="badge badge-secondary tag" href="/categories/%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B/" rel="tag">上传模型 <span class="tag-num">5</span></a><a class="badge badge-secondary tag" href="/categories/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC/" rel="tag">使用脚本 <span class="tag-num">4</span></a><a class="badge badge-secondary tag" href="/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/" rel="tag">其他教程 <span class="tag-num">10</span></a><a class="badge badge-secondary tag" href="/categories/%E5%8A%A8%E9%AA%A8%E4%BA%A4%E4%BA%92/" rel="tag">动骨交互 <span class="tag-num">2</span></a><a class="badge badge-secondary tag" href="/categories/%E6%B7%BB%E5%8A%A0%E5%8A%A8%E7%94%BB/" rel="tag">添加动画 <span class="tag-num">9</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="blog_tags" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">标签</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		
+		
+			
+	<article class="post post-full card bg-white shadow-sm border-0 ">
+	<header class="post-header text-center">
+		
+		<a class="post-title" href="/archives/162">动骨(PhysBones)简介</a>
+		<div class="post-meta">
+			
+						
+						<div class="post-meta-detail post-meta-detail-time">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<time title="发布于 2022-4-26 15:25:56 | 编辑于 2025-1-1 0:00:11">2022-4-26 15:25
+							</time>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-categories">
+							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
+							<a class="post-meta-detail-catagory-link" href="/categories/%E5%8A%A8%E9%AA%A8%E4%BA%A4%E4%BA%92/">动骨交互</a>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-words">
+							<i class="fa fa-file-word-o" aria-hidden="true"></i>
+							1.7k 字
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-readingtime">
+							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
+							6 分钟
+						</div>
+					
+		</div>
+		
+	</header>
+
+	<div class="post-content" id="post_content">
+		<center><strong>前言</strong></center>
+
+<p>官方消息：原动骨插件最终将被全部移除，将全部自动转为新动骨</p>
+<hr>
+<center><strong>自动转换</strong></center>
+
+<p>将带动骨的模型拖入场景，选择模型后点击上方“VRChat SDK-Utilities-Convert DynamicBones to PhysBones”</p>
+<p>注意：毕竟只是自动转换，<strong>Dynamic Bones</strong>和<strong>PhysBones</strong>并不相同，肯定会有不完美的地方 <del>(指很多bug)</del></p>
+<hr>
+<h2 id="添加PhysBones"><a href="#添加PhysBones" class="headerlink" title="添加PhysBones"></a>添加PhysBones</h2><p>在想要“动”的骨骼(例如头发，裙子等)上添加组件“VRC Phys Bone”即可</p>
+<p>添加组件后可以看到模型上有白线，就是“静止位置”</p>
+<p>以下所述内容建议亲自尝试，毕竟文字表述没有自己上手实验所带来的视觉反馈强</p>
+<h2 id="一、Transforms"><a href="#一、Transforms" class="headerlink" title="一、Transforms"></a>一、Transforms</h2><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5l87k4hxtbk0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<h3 id="Root-Transform"><a href="#Root-Transform" class="headerlink" title="Root Transform"></a>Root Transform</h3><p>动骨的根位置，若不添加则为组件所在位置</p>
+<h3 id="Ignore-Transforms"><a href="#Ignore-Transforms" class="headerlink" title="Ignore Transforms"></a>Ignore Transforms</h3><p>如果动骨所在位置下方有子骨骼，但部分子骨骼不想让它跟着此动骨动，可将其拖到此处</p>
+<p>例如：尾巴在裙子骨骼下，不想尾巴”动”的效果和裙子一样可拖入此处</p>
+<h3 id="Endpoint-Position"><a href="#Endpoint-Position" class="headerlink" title="Endpoint Position"></a>Endpoint Position</h3><p>动骨结束位置，一般不需要设置。(在骨骼末端创建额外的骨骼)</p>
+<p>需要设置的情况：例如裙子很长但只有一个骨骼，可修改此项使动骨达到裙子末端一般只需要动“Y轴”，而且是个正值，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>一般裙子骨骼如下(不需要设置)</th>
+<th>只有一个骨骼(可能需要设置)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>父级“Hips”下子集“Skirt_A1_L”还有子集</td>
+<td>父级“Hips”下子集“Skirt1”无子集</td>
+</tr>
+<tr>
+<td><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5gd52p9c23g0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></td>
+
+<td><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.9orxdswcog4.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></td>
+
+</tr>
+</tbody></table>
+<h3 id="Multi-Child-Type"><a href="#Multi-Child-Type" class="headerlink" title="Multi Child Type"></a>Multi Child Type</h3><p>当前骨骼多子骨骼情况下，父级骨骼位置，一般“忽略”即可</p>
+<ul>
+<li><p><strong>忽略</strong>：不添加骨骼</p>
+</li>
+<li><p><strong>First</strong>：子骨骼中第一个骨骼作为父骨骼的终点</p>
+</li>
+<li><p><strong>Average</strong>：所有子骨骼的起点的平均位置作为父骨骼的重点</p>
+</li>
+</ul>
+<h2 id="二、Forces"><a href="#二、Forces" class="headerlink" title="二、Forces"></a>二、Forces</h2><h3 id="Integration-Type"><a href="#Integration-Type" class="headerlink" title="Integration Type"></a>Integration Type</h3><p>选择简单模式或高级模式，此部分数值可以在<code>播放</code>模式调整测试效果</p>
+<p>关于后面的<code>C</code>：数值将根据设定的曲线改变</p>
+<table>
+<thead>
+<tr>
+    <th>简单(Simplified)</th><th>高级(Advanced)</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <td>
+            <img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.22irlehtq1fk.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" referrerpolicy="no-referrer" alt="img">
+
+        </td>
+        <td>
+            <img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/YO5V[YTTV81FOBFVREMD7]T.4hygp330s4c0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" referrerpolicy="no-referrer" alt="img">
+
+        </td>
+    </tr>
+    <tr>
+        <td>较稳定，容易配置，对外部冲击和力量反应较小</td>
+        <td>不稳定，但允许更复杂的配置，对外部冲击和力量反应敏感</td>
+    </tr>
+    <tr>
+        <td colspan="2"><strong>Pull(拉力)</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2">将动骨拉回“静止位置”的力量，数值越大，力量越大(裙子越不容易动)</td>
+    </tr>
+    <tr>
+        <td><strong>Spring(弹性)</strong></td>
+        <td><strong>Momentum</strong></td>
+    </tr>
+    <tr>
+        <td>动骨回到“静止位置”的摇晃程度</td>
+        <td>同<code>Spring</code>，具体效果请自行尝试</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><strong>硬度(Stiffness)</strong></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>使动骨保持在“静止位置”的强度，值越大越强</td>
+    </tr>
+    <tr>
+        <td colspan="2"><strong>Immobile</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2">动骨对骨骼的影响程度。值为1时不影响骨骼，即骨骼一直在“静止位置”，只有碰撞和抓取时才生效</td>
+    </tr>
+    <tr>
+        <td colspan="2"><strong>重力(Gravity)</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2">重力对骨骼影响，小于0则反重力(裙子上飘)</td>
+    </tr>
+    <tr>
+        <td colspan="2"><strong>Gravity Falloff(重力衰减)</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2">只有在上一项“重力”不为0时可用，控制重力对动骨“静止位置”的影响，值为1时不影响</td>
+    </tr>
+</tbody>
+</table>
+
+
+
+
+<h3 id="参考参数"><a href="#参考参数" class="headerlink" title="参考参数"></a>参考参数</h3><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.2z0m8306s3c0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<p>来源：<a target="_blank" rel="noopener" href="https://youtu.be/PTTnWUkswkU">https://youtu.be/PTTnWUkswkU</a></p>
+<h2 id="三、Limits-限制"><a href="#三、Limits-限制" class="headerlink" title="三、Limits(限制)"></a>三、Limits(限制)</h2><p>此部分为动骨移动范围的限制，可以用于防穿模，比碰撞更高效</p>
+<p>当添加限制时，在场景里有一个可视化图形用于辅助，此部分数值调整可在<code>场景</code>看到效果</p>
+<p>若为<code>无(None)</code>则没有限制</p>
+<h3 id="1）角度-Angle"><a href="#1）角度-Angle" class="headerlink" title="1）角度(Angle)"></a>1）角度(Angle)</h3><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5fg5lki8p100.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<p>骨骼移动范围为圆锥型</p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.3q5ks1qzflw0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p><strong>Max Angle</strong>：最大角度</p>
+</li>
+<li><p><strong>Rotation</strong>：调节限制的范围，具体自己调节即可知晓</p>
+</li>
+<li><p><strong>Pitch</strong>(俯仰)：Y-Z轴平面调整</p>
+</li>
+<li><p><strong>Roll</strong>(旋转)：X-Z轴平面调整</p>
+</li>
+<li><p><strong>Yaw</strong>(偏移)：X-Y轴平面调整</p>
+</li>
+</ul>
+<h3 id="2）Hinge-合页"><a href="#2）Hinge-合页" class="headerlink" title="2）Hinge(合页)"></a>2）Hinge(合页)</h3><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.6udcwfr44rk0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<p>骨骼移动范围为一个平面</p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.26ix1hne1zc0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p><strong>Max Angle</strong>：最大角度</p>
+</li>
+<li><p><strong>Rotation</strong>：参考 <em>角度(Angle)</em> 的介绍</p>
+</li>
+</ul>
+<h3 id="3）Polar"><a href="#3）Polar" class="headerlink" title="3）Polar"></a>3）Polar</h3><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5hnwt54xm600.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<p>在上一个类型“Hinge(合页)”的基础上多一个轴可移动，不过此类型占用性能过大，官方建议尽量避免使用</p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.5gk8akp19280.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p><strong>Max Pitch</strong>：可移动角度，类似“Hinge(合页)”的“Max Angle”</p>
+</li>
+<li><p><strong>Max Yaw</strong>：新轴的范围</p>
+</li>
+<li><p><strong>Rotation</strong>：参考<a href="#1%EF%BC%89%E8%A7%92%E5%BA%A6(Angle)">角度(Angle)</a>的介绍</p>
+</li>
+</ul>
+<h2 id="四、Collision-碰撞"><a href="#四、Collision-碰撞" class="headerlink" title="四、Collision(碰撞)"></a>四、Collision(碰撞)</h2><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.k66s0ps9stc.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p>半径(Radius)：碰撞球的半径</p>
+</li>
+<li><p>Allow Collision：勾选则允许其他玩家碰撞(触碰)此骨骼</p>
+</li>
+<li><p>碰撞器(Colliders)：如添加其他骨骼碰撞，则会显示于此，如将腿部碰撞拖入裙子动骨此处。大小为数量</p>
+</li>
+</ul>
+<h3 id="添加碰撞"><a href="#添加碰撞" class="headerlink" title="添加碰撞"></a>添加碰撞</h3><p>添加碰撞在相应骨骼下创建空物体后添加组件“VRC Phys Bone Collider” (例如腿部骨骼添加空物体“腿部碰撞”)</p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/20220322/image.inu3nz30ic0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p><strong>Root Transform</strong>：碰撞所在位置，不添加则为组件所在位置</p>
+</li>
+<li><p><strong>Shape Type</strong>：类型，可以选“球体”、“胶囊”或“平面”</p>
+</li>
+<li><p><strong>Insider Bounds</strong>：勾选则相应动骨只能在此范围内运动</p>
+</li>
+</ul>
+<p>推荐使用**Insider Bounds(内碰撞)**添加，更好的控制动骨移动范围，防止穿模<br>个人见解：小范围移动用外碰撞，大范围移动用内碰撞</p>
+<h3 id="碰撞添加至动骨"><a href="#碰撞添加至动骨" class="headerlink" title="碰撞添加至动骨"></a>碰撞添加至动骨</h3><p>直接将此空物体拖入动骨的碰撞器即可(例如腿部碰撞拖入裙子动骨)</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>防穿模，播放模式下可看到效果(例如裙子被腿部碰撞撑起来)</p>
+<h2 id="五、Grab-Pose-抓取和定位"><a href="#五、Grab-Pose-抓取和定位" class="headerlink" title="五、Grab &amp; Pose(抓取和定位)"></a>五、Grab &amp; Pose(抓取和定位)</h2><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.3vj5o12e9l80.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p><strong>Allow Grabbing</strong>：允许其他玩家抓取此骨骼</p>
+</li>
+<li><p><strong>Allow Posing</strong>：允许其他玩家抓取后将其定位</p>
+</li>
+<li><p><strong>Grab Movement</strong>：控制抓取的骨骼如何移动。数值为”0″将通过“Forces”设置参数移动，数值为“1”则立即移动</p>
+</li>
+<li><p><strong>Max Stretch</strong>：骨骼被抓取时可以被拉伸的最大长度</p>
+</li>
+</ul>
+<h2 id="六、Options"><a href="#六、Options" class="headerlink" title="六、Options"></a>六、Options</h2><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.6d07koeo6ec0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<h3 id="参数-Parameter"><a href="#参数-Parameter" class="headerlink" title="参数(Parameter)"></a>参数(Parameter)</h3><p>此处设置一个字符串可创建一些参数(将填入数值替换下方{parameter})用于实现一些效果</p>
+<ul>
+<li><p><strong>{parameter}_IsGrabbed</strong>：Bool类型，骨骼是否被抓住</p>
+</li>
+<li><p><strong>{parameter}_Angle</strong>：Float类型，取值0.0~1.0，骨骼被扭转的角度，如果被扭转180度即和原骨骼方向相反则为1.0</p>
+</li>
+<li><p><strong>{parameter}_Stretch</strong>：Float类型，取值0.0~1.0，骨骼被拉伸的长度与最大长度的百分比，如最大长度为10，当被拉到5时，此参数为0.5</p>
+</li>
+</ul>
+<p>例如在“参数(Parameter)”后填入“Hello”，想要使用这些参数则使用“Hello_IsGrabbed”、“Hello_Angle”和“Hello__Stretch”</p>
+<h3 id="Is-Animated"><a href="#Is-Animated" class="headerlink" title="Is Animated"></a>Is Animated</h3><p>允许骨骼变换被动画控制，骨骼的“静止位置”将允许被动画改变</p>
+<h2 id="七、Gizmos"><a href="#七、Gizmos" class="headerlink" title="七、Gizmos"></a>七、Gizmos</h2><p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://jsd.cdn.zzko.cn/gh/yexca/picx-images-hosting@master/2022-VRChat/04-PhysBones/image.7ed1567tjro0.webp" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="img"></p>
+
+<ul>
+<li><p><strong>Show Gizmos</strong>：显示动骨和限制</p>
+</li>
+<li><p><strong>Bone Opacity</strong>：骨骼不透明度，值为0透明(看不见)，值为1不透明(最清晰)</p>
+</li>
+<li><p><strong>Limit Opacity</strong>：限制不透明度，同上</p>
+</li>
+</ul>
+<h2 id="八、注意事项"><a href="#八、注意事项" class="headerlink" title="八、注意事项"></a>八、注意事项</h2><p>一个动骨插件最大可实现256个变化，如果骨骼过多，请分开加动骨组件，不要直接在根骨骼添加组件 <del>(不会真有人这么加吧，不会吧)</del></p>
+
+	</div>
+
+	
+
+	
+			<div class='additional-content-after-post'>本文章由 <a target="_blank" rel="noopener" href="https://lit.link/yexca">yexca</a> 采用 <a style="text-decoration: underline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_BLANK">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，转载请注明出处。</blockquote></div>
+		
+
+	
+</article>
+
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://vrc.yexca.net/archives/162&text=动骨(PhysBones)简介" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
+	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : '动骨(PhysBones)简介',
+	    description : `前言
+
+官方消息：原动骨插件最终将被全部移除，将全部自动转为新动骨
+
+自动转换
+
+将带动骨的模型拖入...`,
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'http://vrc.yexca.net/archives/162'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
+
+
+
+
+
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/archives/172" rel="prev"> 交互系统(Contacts)简介</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/archives/148" rel="next"> 随机播放音乐(Avatar Parameter Driver)</a></div></div>
+
+
+
+
+		
+		
+		
+		
+
+					<footer id="footer" class="site-footer card shadow-sm border-0">
+						
+						<span>Copyright © by <a target="_blank" rel="noopener" href="https://lit.link/yexca"><strong>yexca</strong></a></span>
+						<div>Theme <a target="_blank" rel="noopener" href="https://github.com/solstice23/hexo-theme-argon"><strong>Argon</strong></a> | Powered by Hexo</div>
+						<!-- <span id="busuanzi_container_site_uv">
+							本站访客数 <span id="busuanzi_value_site_uv"></span> 人次
+						</span> -->
+					</footer>
+				</main>
+			</div>
+		</div>
+		
+<script src="/argontheme.js"></script>
+
+		
+		
+		
+
+		
+
+	</div>
+</div>
+<noscript>
+	<style>
+		article img.lazyload[src^="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPg"]{display: none;}
+		.comment-item-text .comment-sticker.lazyload{display: none;}
+	</style>
+</noscript>
+</body>
+
+
+
+</html>
+

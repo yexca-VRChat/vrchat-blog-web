@@ -3,18 +3,20 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>归档 : 2022 - yexca - VRChat Blog</title>
+	<title>添加MMD舞蹈(Animator Locomotion Control) - yexca - VRChat Blog</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	
-	<meta name="description" content="VRChat 教程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yexca - VRChat Blog">
-<meta property="og:url" content="http://vrc.yexca.net/archives/2022/page/4/index.html">
+	<meta name="description" content="一、文件准备 舞蹈动画文件 音乐  关于MMD舞蹈转换，请参考：FX层-固定于世界的模型跳MMD舞蹈 不过这里要调整动画方向，点击动画文件，在右方”跟变换旋转-依据“选择”原始“ 二、制作音乐开关1）压缩音频点击音频文件，在右方选择压缩格式(一般默认的”Vorbis“即可)，选择质量(越低压缩率越高)，然后点击应用即可 2）加入音频在模型上创建一个空物体，然后添加组件”音频源“(英文: Audio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="添加MMD舞蹈(Animator Locomotion Control)">
+<meta property="og:url" content="http://vrc.yexca.net/archives/140">
 <meta property="og:site_name" content="yexca - VRChat Blog">
-<meta property="og:description" content="VRChat 教程">
+<meta property="og:description" content="一、文件准备 舞蹈动画文件 音乐  关于MMD舞蹈转换，请参考：FX层-固定于世界的模型跳MMD舞蹈 不过这里要调整动画方向，点击动画文件，在右方”跟变换旋转-依据“选择”原始“ 二、制作音乐开关1）压缩音频点击音频文件，在右方选择压缩格式(一般默认的”Vorbis“即可)，选择质量(越低压缩率越高)，然后点击应用即可 2）加入音频在模型上创建一个空物体，然后添加组件”音频源“(英文: Audio">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-23T16:40:56.000Z">
+<meta property="article:modified_time" content="2024-12-31T16:00:11.479Z">
 <meta property="article:author" content="yexca">
 <meta property="article:tag" content="VRChat 教程">
 <meta name="twitter:card" content="summary">
@@ -426,15 +428,6 @@
 
 <div class="page-information-card-container">
 	
-		
-<div class="page-information-card card bg-gradient-secondary shadow-lg border-0">
-	<div class="card-body">
-		<h3 class="text-black">归档 : 2022 </h3>
-		
-	</div>
-</div>
-
-	
 </div>
 
 <div id="sidebar_mask"></div>
@@ -456,7 +449,7 @@
 			
 			
 				<ul id='leftbar_part1_menu' class='leftbar-menu'>
-					<li class='leftbar-menu-item'><a href='/start'>教程大纲</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>上传教程</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/12'>上传准备</a></li><li class='leftbar-menu-item'><a href='/archives/19'>成品模型上传</a></li><li class='leftbar-menu-item'><a href='/archives/29'>MMD 模型转 FBX</a></li><li class='leftbar-menu-item'><a href='/archives/33'>MMD 模型/FBX 模型上传</a></li><li class='leftbar-menu-item'><a href='/archives/37'>SDK2 转 SDK3</a></li></ul></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>动画层</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/44'>简介</a></li><li class='leftbar-menu-item'><a href='/archives/48'>Locomotion 层</a></li><li class='leftbar-menu-item'><a href='/archives/53'>Action 层</a></li><li class='leftbar-menu-item'><a href='/archives/70'>FX 层简单物品开关</a></li><li class='leftbar-menu-item'><a href='/archives/75'>FX 层物体绑骨</a></li><li class='leftbar-menu-item'><a href='/archives/102'>FX 层换衣服</a></li><li class='leftbar-menu-item'><a href='/archives/105'>FX 层固定于世界的物品</a></li><li class='leftbar-menu-item'><a href='/archives/108'>FX 层 MMD 固定世界</a></li><li class='leftbar-menu-item'><a href='/archives/119'>综述</a></li></ul></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>VRC 脚本</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/135'>State Behaviors</a></li><li class='leftbar-menu-item'><a href='/archives/140'>自身跳 MMD</a></li><li class='leftbar-menu-item'><a href='/archives/148'>随机播放音乐</a></li><li class='leftbar-menu-item'><a href='/archives/273'>顺序播放音乐</a></li></ul></li>
+					<li class='leftbar-menu-item'><a href='/start'>教程大纲</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>上传教程</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/12'>上传准备</a></li><li class='leftbar-menu-item'><a href='/archives/19'>成品模型上传</a></li><li class='leftbar-menu-item'><a href='/archives/29'>MMD 模型转 FBX</a></li><li class='leftbar-menu-item'><a href='/archives/33'>MMD 模型/FBX 模型上传</a></li><li class='leftbar-menu-item'><a href='/archives/37'>SDK2 转 SDK3</a></li></ul></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>动画层</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/44'>简介</a></li><li class='leftbar-menu-item'><a href='/archives/48'>Locomotion 层</a></li><li class='leftbar-menu-item'><a href='/archives/53'>Action 层</a></li><li class='leftbar-menu-item'><a href='/archives/70'>FX 层简单物品开关</a></li><li class='leftbar-menu-item'><a href='/archives/75'>FX 层物体绑骨</a></li><li class='leftbar-menu-item'><a href='/archives/102'>FX 层换衣服</a></li><li class='leftbar-menu-item'><a href='/archives/105'>FX 层固定于世界的物品</a></li><li class='leftbar-menu-item'><a href='/archives/108'>FX 层 MMD 固定世界</a></li><li class='leftbar-menu-item'><a href='/archives/119'>综述</a></li></ul></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>VRC 脚本</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/archives/135'>State Behaviors</a></li><li class='leftbar-menu-item current'><a href='/archives/140'>自身跳 MMD</a></li><li class='leftbar-menu-item'><a href='/archives/148'>随机播放音乐</a></li><li class='leftbar-menu-item'><a href='/archives/273'>顺序播放音乐</a></li></ul></li>
 				</ul>
 			
 			<div class="card-body text-center leftbar-search-button">
@@ -468,18 +461,39 @@
 		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
 			<div id="leftbar_part2_inner" class="card-body">
 				
-				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+				<div class="nav-wrapper" style="padding-top: 5px;">
 	                <ul class="nav nav-pills nav-fill" role="tablist">
 						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
 						<li class="nav-item sidebar-tab-switcher">
-							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
 						</li>
 	                </ul>
 				</div>
 				<div>
 					<div class="tab-content" style="padding: 10px 10px 0 10px;">
 						
-						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
 							<h6 id="leftbar_overview_author_name">yexca</h6>
 							<nav class="site-state">
@@ -569,18 +583,17 @@
 	<main id="main" class="site-main" role="main">
 		
 		
-		
-				
-	<article class="post card bg-white shadow-sm border-0 ">
+			
+	<article class="post post-full card bg-white shadow-sm border-0 ">
 	<header class="post-header text-center">
 		
-		<a class="post-title" href="/archives/12">VRChat模型上传准备</a>
+		<a class="post-title" href="/archives/140">添加MMD舞蹈(Animator Locomotion Control)</a>
 		<div class="post-meta">
 			
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2022-4-18 1:45:56 | 编辑于 2025-1-1 0:00:11">2022-4-18 1:45
+							<time title="发布于 2022-4-24 0:40:56 | 编辑于 2025-1-1 0:00:11">2022-4-24 0:40
 							</time>
 						</div>
 					
@@ -589,7 +602,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-categories">
 							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B/">上传模型</a>
+							<a class="post-meta-detail-catagory-link" href="/categories/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC/">使用脚本</a>
 						</div>
 					
 						
@@ -597,7 +610,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-words">
 							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							348 字
+							561 字
 						</div>
 					
 						
@@ -605,93 +618,163 @@
 						
 						<div class="post-meta-detail post-meta-detail-readingtime">
 							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
+							2 分钟
 						</div>
 					
 		</div>
 		
 	</header>
 
-	<div class="post-content">
-		
-			
-				一、前提条件1）拥有VRChat账号（官网注册）Steam登录的不行，如果名字后面有其他字符说明是steam登录，请官网注册账号并绑定
-2）账号等级达到蓝色（New User）在线时间，经常去人多的地方，好友数量，和好友在一起等都会加速升级
-二、Unity的下载与安装1）打开Unity官网下载界面官网下载界面链接(CN)：Unity所有版本下载 |...
-			
-		
+	<div class="post-content" id="post_content">
+		<h2 id="一、文件准备"><a href="#一、文件准备" class="headerlink" title="一、文件准备"></a>一、文件准备</h2><ul>
+<li>舞蹈动画文件</li>
+<li>音乐</li>
+</ul>
+<p>关于MMD舞蹈转换，请参考：<a href="/archives/108">FX层-固定于世界的模型跳MMD舞蹈</a></p>
+<p>不过这里要调整动画方向，点击动画文件，在右方”跟变换旋转-依据“选择”原始“</p>
+<h2 id="二、制作音乐开关"><a href="#二、制作音乐开关" class="headerlink" title="二、制作音乐开关"></a>二、制作音乐开关</h2><h3 id="1）压缩音频"><a href="#1）压缩音频" class="headerlink" title="1）压缩音频"></a>1）压缩音频</h3><p>点击音频文件，在右方选择压缩格式(一般默认的”Vorbis“即可)，选择质量(越低压缩率越高)，然后点击应用即可</p>
+<h3 id="2）加入音频"><a href="#2）加入音频" class="headerlink" title="2）加入音频"></a>2）加入音频</h3><p>在模型上创建一个空物体，然后添加组件”音频源“(英文: Audio Source)</p>
+<p>在”AudioClip“后方拖入音乐，”空间混合“调为”1“，”多普勒级别“调为”0“，”音量衰减“选”线性衰减“，”最大距离“可自由调节(例如20)</p>
+<h3 id="3）音频邦骨-可选"><a href="#3）音频邦骨-可选" class="headerlink" title="3）音频邦骨(可选)"></a>3）音频邦骨(可选)</h3><p>我制作一般会将音频邦骨在嘴部，邦骨参考：<a href="/archives/75">FX层-物体邦骨，物品开关简述</a></p>
+<h3 id="4）制作音频开关"><a href="#4）制作音频开关" class="headerlink" title="4）制作音频开关"></a>4）制作音频开关</h3><p>录制开关参考：<a href="/archives/70">FX层-简单物品开关，光源，飞行</a></p>
+<h2 id="三、动画器添加动画"><a href="#三、动画器添加动画" class="headerlink" title="三、动画器添加动画"></a>三、动画器添加动画</h2><h3 id="Action层"><a href="#Action层" class="headerlink" title="Action层"></a>Action层</h3><p>进入Action层，跟随“Entry-WaitForActionOrAFK-Prepare Standing”，“Prepare Standing”后连接八个过渡，任选一个过渡后的状态，将“Motion”替换为舞蹈动画</p>
+<p>然后添加组件“Animator Locomotion Control”，将“Locomotion Control”设置为“Disable”，如果不设置游戏中转动或移动时模型也会动</p>
+<p>检查前后过渡是否正确，是否有相应条件(如前面为“VRCEmote”等于“1”，后面为“VRCEmote”不等于“1”)并且是否将退出时间关闭</p>
+<p>在下一个状态(“BlendOut Stand”)添加组件“Animator Locomotion Control”，将“Locomotion Control”设置为“Enable”，如果不设置游戏里再也无法移动或转动视角</p>
+<h3 id="FX层"><a href="#FX层" class="headerlink" title="FX层"></a>FX层</h3><p>进入FX层，在参数添加“Int”型参数，命名为“VRCEmote”</p>
+<p>创建一个层，音乐打开的条件为刚刚Action层进入舞蹈的条件(例如“VRCEmote”等于“1”)，关闭的条件为刚刚Action层退出舞蹈的条件(例如“VRCEmote”不等于“1”)，将退出时间关闭</p>
+<h2 id="四、设置数值与菜单"><a href="#四、设置数值与菜单" class="headerlink" title="四、设置数值与菜单"></a>四、设置数值与菜单</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>默认的数值第一个就是“VRCEmote”，如果没有请添加，类型为“Int”</p>
+<h3 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a>菜单</h3><p>菜单添加一项，“类型”为“Toggle”，“Parameter”为“VRCEmote”，数值为在Action层条件(例如“1”)</p>
+
 	</div>
+
+	
+
+	
+			<div class='additional-content-after-post'>本文章由 <a target="_blank" rel="noopener" href="https://lit.link/yexca">yexca</a> 采用 <a style="text-decoration: underline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_BLANK">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，转载请注明出处。</blockquote></div>
+		
 
 	
 </article>
 
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/archives/1">Hello World！</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2022-4-13 14:39:00 | 编辑于 2025-1-1 0:00:11">2022-4-13 14:39
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/default/">default</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							40 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				
-欢迎使用WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！
-
-
-
-我已经不用WordPress了
-
-now, I’m using Hexo (XD
-
-			
-		
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://vrc.yexca.net/archives/140&text=添加MMD舞蹈(Animator Locomotion Control)" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
 	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : '添加MMD舞蹈(Animator Locomotion Control)',
+	    description : `一、文件准备
+舞蹈动画文件
+音乐
 
-	
-</article>
+关于MMD舞蹈转换，请参考：FX层-固定于世界的模型跳MMD舞蹈...`,
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'http://vrc.yexca.net/archives/140'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
 
 
 
-<nav><ul class="pagination"><li class="page-item"><a aria-label="Previous Page" class="page-link" href="/archives/2022/page/3/"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li><li class="page-item"><a class="page-link" href="/archives/2022/">1</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/2/">2</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/3/">3</a></li><li class="page-item active"><span class="page-link" style="cursor: default;">4</span></li></ul></nav><nav><ul class="pagination pagination-mobile"><li class="page-item"><a aria-label="Previous Page" class="page-link" href="/archives/2022/page/3/"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li><li class="page-item"><a class="page-link" href="/archives/2022/">1</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/2/">2</a></li><li class="page-item"><a class="page-link" href="/archives/2022/page/3/">3</a></li><li class="page-item active"><span class="page-link" style="cursor: default;">4</span></li></ul></nav>
 
 
-			
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/archives/148" rel="prev"> 随机播放音乐(Avatar Parameter Driver)</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/archives/135" rel="next"> VRC脚本(State Behaviors)简介</a></div></div>
+
+
+
+
+		
+		
 		
 		
 
